@@ -27,6 +27,8 @@ open_ok:
     mov bx,ax
   
 cont:
+    cmp flag,0
+    jg type_ok
     call readch
     cmp al,EOF
     jz type   
@@ -84,10 +86,6 @@ L5:
     
     
 type:
-    cmp flag,0
-    jng t1      
-    jmp type_ok
-t1:
     mov flag,1
     jmp L1
     
